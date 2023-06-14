@@ -20,6 +20,8 @@ public class login_test {
 		driver.manage().window().maximize();
 		Thread.sleep(2000);		
 		
+		System.out.print("asdsad");
+		
 		login_page.input_username(driver).sendKeys("03313055859");
 		Thread.sleep(2000);
 		login_page.input_password(driver).sendKeys("070509");
