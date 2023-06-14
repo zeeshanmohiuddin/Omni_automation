@@ -21,7 +21,8 @@ public class login_test {
 		Thread.sleep(2000);		
 		
 		System.out.print("asdsad");
-		
+		System.out.print("asdsasdsadad");
+
 		login_page.input_username(driver).sendKeys("03313055859");
 		Thread.sleep(2000);
 		login_page.input_password(driver).sendKeys("070509");
