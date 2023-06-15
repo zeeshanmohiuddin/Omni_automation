@@ -18,20 +18,26 @@ public class login_test {
 		driver = new ChromeDriver();
 		driver.get("http://119.160.107.35:31007/apps/BBWebAgentAppBas/#/BBAuthMA/frmSignIn");
 		driver.manage().window().maximize();
-		Thread.sleep(2000);		
+		Thread.sleep(5000);		
 		
-		System.out.print("asdsad");
-		System.out.print("asdsasdsadad");
+		
+		login_test();
+		
+		driver.close();
 
+
+	}
+	
+	public static void login_test() throws InterruptedException {
 		login_page.input_username(driver).sendKeys("03313055859");
 		Thread.sleep(2000);
 		login_page.input_password(driver).sendKeys("070509");
 		Thread.sleep(2000);
 		login_page.button_signin(driver).click();
 		Thread.sleep(20000);
-		driver.close();
-
-
 	}
+	
+	
+	
 
 }
