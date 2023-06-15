@@ -7,7 +7,6 @@ import org.openqa.selenium.chrome.ChromeDriver;
 
 
 import pages.login_page;
-import pages.hamburger_page;
 
 public class login_test {
 	
@@ -23,7 +22,7 @@ public class login_test {
 		
 		
 		login_test();
-		hamburger_test();
+
 		
 		driver.close();
 
@@ -41,10 +40,5 @@ public class login_test {
 	}
 
 	
-	public static void hamburger_test() throws InterruptedException {
-		hamburger_page.div_hamburger(driver).click();
-		Thread.sleep(2000);
 
-		System.out.println("**************Hamburger Clicked******************");
-	}
 }
