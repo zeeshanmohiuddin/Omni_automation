@@ -13,10 +13,10 @@ import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.usermodel.Workbook;
 import org.apache.poi.ss.usermodel.WorkbookFactory;
-import org.apache.poi.xssf.usermodel.XSSFSheet;
-import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+
 
 import pages.login_page;
+import pages.logout_page;
 
 public class login_test {
 	
@@ -30,9 +30,13 @@ public class login_test {
 		driver.manage().window().maximize();
 		Thread.sleep(5000);		
 		
-		
+		//login 
 		login_test();
+		Thread.sleep(30000);	
 
+		//logout
+		logout_test();
+		Thread.sleep(5000);	
 		
 		driver.close();
 
@@ -47,6 +51,7 @@ public class login_test {
 		Workbook wb = WorkbookFactory.create(fis);
 		Sheet sheet0 = wb.getSheetAt(0);
 		Row row1 = sheet0.getRow(1);
+		
 		Cell cell0 = row1.getCell(0);
 		
 		Cell cell1 = row1.getCell(1);
@@ -67,9 +72,15 @@ public class login_test {
 		System.out.println("----------Login Successfull-------------");
 	}
 	
-
 	
 	
+	public static void logout_test() throws InterruptedException { 
+		
+		logout_page.div_logout(driver).click();
+		Thread.sleep(2000);
+		
+		System.out.println("----------Logout Successfull-------------");
+	}
 	
 
 }
