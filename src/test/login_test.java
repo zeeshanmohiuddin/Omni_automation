@@ -66,18 +66,18 @@ public class login_test {
 		Cell user1 = row2.getCell(0);
 		Cell pass1 = row2.getCell(1);
 		
+		//convert into string 
+//		String user0_str = user0.toString();
+//		String pass0_str = pass0.toString();
+//		
+//		String user1_str = user1.toString();
+//		String pass1_str = pass1.toString();
 		
-		String user0_str = user0.toString();
-		String pass0_str = pass0.toString();
+		username.add(user0.toString());
+		username.add(user1.toString());
 		
-		String user1_str = user1.toString();
-		String pass1_str = pass1.toString();
-		
-		username.add(user0_str);
-		username.add(user1_str);
-		
-		password.add(pass0_str);
-		password.add(pass1_str);
+		password.add(pass0.toString());
+		password.add(pass1.toString());
 		
 		fis.close();
 		
