@@ -7,6 +7,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.util.List;
 
 import org.apache.poi.ss.usermodel.Workbook;
 import org.apache.poi.ss.usermodel.Cell;
@@ -38,16 +39,16 @@ public class Omni_Automation_class {
 //		Thread.sleep(20000);
 //		driver.close();
 		
-		
-		
-		File src = new File("D:/Work/Automation/InputValues.xlsx");
-		FileInputStream fis = new FileInputStream(src); 
-		Workbook wb = WorkbookFactory.create(fis);
-		Sheet sheet0 = wb.getSheetAt(0);
-		Row row0 = sheet0.getRow(1);
-		Cell cell0 = row0.getCell(0);
-		System.out.println(cell0);
-		fis.close();
+//		
+//		
+//		File src = new File("D:/Work/Automation/InputValues.xlsx");
+//		FileInputStream fis = new FileInputStream(src); 
+//		Workbook wb = WorkbookFactory.create(fis);
+//		Sheet sheet0 = wb.getSheetAt(0);
+//		Row row0 = sheet0.getRow(1);
+//		Cell cell0 = row0.getCell(0);
+//		System.out.println(cell0);
+//		fis.close();
 //		
 
 //		XSSFWorkbook xsf = new XSSFWorkbook(fis);
@@ -61,7 +62,22 @@ public class Omni_Automation_class {
 //		
 //		System.out.println(entry1);
 //		System.out.println("7");
+		
+		
+		
+		
+		test_user(0);  // aaa
+		test_user(1);  // bbb
+		test_user(2);  // ccc
 
+	}
+	
+	public static void test_user(int index) {
+		String a = "a";
+		String b = "b";
+		String c = "c";
+		String[] alphas = {a,b,c};
+		System.out.println(alphas[index]);
 	}
 
 }

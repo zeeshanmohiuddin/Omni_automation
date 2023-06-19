@@ -7,6 +7,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.util.ArrayList;
 
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.Row;
@@ -31,54 +32,80 @@ public class login_test {
 		Thread.sleep(5000);		
 		
 		//login 
-		login_test();
-		Thread.sleep(30000);	
-
-		//logout
-		logout_test();
+		login_test(0);
 		Thread.sleep(5000);	
 		
+		logout_test();
+		Thread.sleep(5000);
+		
+		login_test(1);
+		Thread.sleep(5000);
+			
 		driver.close();
 
 
 	}
 	
-	public static void login_test() throws IOException, InterruptedException  { 
-		
+	public static void login_test(int index) throws IOException, InterruptedException  { 	
+		ArrayList<String> username = new ArrayList<String>();
+		ArrayList<String> password = new ArrayList<String>();
+
 		
 		File src = new File("D:/Work/Automation/InputValues.xlsx");
 		FileInputStream fis = new FileInputStream(src); 
 		Workbook wb = WorkbookFactory.create(fis);
 		Sheet sheet0 = wb.getSheetAt(0);
-		Row row1 = sheet0.getRow(1);
+
+		//user 1
+		Row row1 = sheet0.getRow(1);		
+		Cell user0 = row1.getCell(0);
+		Cell pass0 = row1.getCell(1);
 		
-		Cell cell0 = row1.getCell(0);
+		//user 2
+		Row row2 = sheet0.getRow(2);		
+		Cell user1 = row2.getCell(0);
+		Cell pass1 = row2.getCell(1);
 		
-		Cell cell1 = row1.getCell(1);
 		
-		String cell0_str = cell0.toString();
-		String cell1_str = cell1.toString();
-		System.out.println(cell0_str);
-		System.out.println(cell1_str);
+		String user0_str = user0.toString();
+		String pass0_str = pass0.toString();
+		
+		String user1_str = user1.toString();
+		String pass1_str = pass1.toString();
+		
+		username.add(user0_str);
+		username.add(user1_str);
+		
+		password.add(pass0_str);
+		password.add(pass1_str);
+		
 		fis.close();
 		
 		
-		login_page.input_username(driver).sendKeys(cell0_str);
+		login_page.input_username(driver).sendKeys(username.get(index));
 		Thread.sleep(2000);
-		login_page.input_password(driver).sendKeys(cell1_str);
+		login_page.input_password(driver).sendKeys(password.get(index));
 		Thread.sleep(2000);
 		login_page.button_signin(driver).click();
-		Thread.sleep(20000);
+		Thread.sleep(10000);
 		System.out.println("----------Login Successfull-------------");
+		Thread.sleep(15000);
+		
+		
+		//login with 2nd user
+//		login_page.input_username(driver).sendKeys(user1_str);
+//		Thread.sleep(2000);
+//		login_page.input_password(driver).sendKeys(pass1_str);
+//		Thread.sleep(2000);
+//		login_page.button_signin(driver).click();
+//		Thread.sleep(20000);
+//		System.out.println("----------Login Successfull-------------");
 	}
 	
-	
-	
-	public static void logout_test() throws InterruptedException { 
-		
+	public static void logout_test() throws InterruptedException { 		
+		Thread.sleep(30000);
 		logout_page.div_logout(driver).click();
 		Thread.sleep(2000);
-		
 		System.out.println("----------Logout Successfull-------------");
 	}
 	
